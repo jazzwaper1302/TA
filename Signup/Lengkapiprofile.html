@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lengkapi Profil</title>
+<link rel="stylesheet" href="lengkap.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Lengkapi Profil</h2>
+    <form action="lengkapiprofile.php" method="POST">
+        <div class="form-group">
+            <label for="province">Provinsi:</label>
+            <select id="province" name="province">
+                <option value="">Pilih Provinsi</option>
+                <!-- Tambahkan pilihan provinsi sesuai dengan kebutuhan -->
+                <option value="Jawa Barat">Jawa Barat</option>
+                <option value="Jawa Tengah">Jawa Tengah</option>
+                <option value="Jawa Timur">Jawa Timur</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="city">Kota:</label>
+            <select id="city" name="city">
+                <option value="">Pilih Kota</option>
+                <!-- Tambahkan pilihan kota sesuai dengan kebutuhan -->
+                <option value="Bandung">Bandung</option>
+                <option value="Surabaya">Surabaya</option>
+                <option value="Yogyakarta">Yogyakarta</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="street">Jalan:</label>
+            <input type="text" id="street" name="street" required>
+        </div>
+
+        <div class="form-group">
+            <label for="postal_code">Kode Pos:</label>
+            <input type="text" id="postal_code" name="postal_code" required pattern="[0-9]{5}" title="Harap masukkan kode pos dengan format yang benar (5 digit angka).">
+        </div>
+
+        <div class="form-group">
+            <label for="education">Pendidikan:</label>
+            <select id="education" name="education">
+                <option value="">Pilih Pendidikan</option>
+                <option value="SD">SD</option>
+                <option value="SMP">SMP</option>
+                <option value="SMA/SMK">SMA/SMK</option>
+                <option value="S1">S1</option>
+                <option value="S2">S2</option>
+                <option value="S3">S3</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="institution">Instansi Pendidikan Terakhir:</label>
+            <input type="text" id="institution" name="institution">
+        </div>
+
+        <div class="form-group hidden" id="degree-group">
+            <label for="degree">Gelar:</label>
+            <input type="text" id="degree" name="degree">
+        </div>
+
+        <div class="form-group">
+            <label for="expertise">Keahlian:</label>
+            <input type="text" id="expertise" name="expertise">
+        </div>
+        <label for="phone">Nomor Telepon:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10,}" required title="Harap masukkan nomor telepon dengan format yang benar (minimal 10 digit).">
+
+        <input type="submit" value="Simpan" class="btn">
+    </form>
+</div>
+
+<script>
+    // Show/hide degree field based on education level
+    var educationSelect = document.getElementById("education");
+    var degreeGroup = document.getElementById("degree-group");
+
+    educationSelect.addEventListener("change", function() {
+        if (educationSelect.value === "S1" || educationSelect.value === "S2" || educationSelect.value === "S3") {
+            degreeGroup.classList.remove("hidden");
+        } else {
+            degreeGroup.classList.add("hidden");
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+}
+
+#username {
+    width: 75%;
+    margin-right: 5px; /* Memberikan sedikit jarak antara input dan tombol */
+}
+
+#checkUsername {
+    width: 25%;
+    margin-top:-10px;
+}
+
+#email {
+    width: 75%;
+    margin-right: 5px; /* Memberikan sedikit jarak antara input dan tombol */
+}
+
+#checkEmail {
+    width: 25%;
+    margin-top:-10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.check-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.check-button:hover {
+    background-color: #0056b3;
+}
+
+.user-type {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-type input[type="radio"] {
+    margin-right: 10px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+p {
+    text-align: center;
+}

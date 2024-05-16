@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulir Pendaftaran - Karir dan Profesi</title>
+<link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Mendaftar</h2>
+        <form id="registrationForm" action="submit.php" method="POST">
+            <label for="fullname">Nama Lengkap:</label>
+            <input type="text" id="fullname" name="fullname" required>
+    
+            <label for="username">Username:</label>
+            <div class="input-row">
+                <input type="text" id="username" name="username" required>
+                <button type="button" id="checkUsername" class="check-button">Cek Username</button>
+            </div>
+            <p id="usernameTaken" style="color: red; display: none;">Username telah digunakan!</p>
+    
+            <label for="email">Email:</label>
+            <div class="input-row">
+                <input type="email" id="email" name="email" required>
+                <button type="button" id="checkEmail" class="check-button">Cek Email</button>
+            </div>
+            <p id="emailTaken" style="color: red; display: none;">Email telah digunakan!</p>
+    
+            <label for="password">Kata Sandi:</label>
+            <input type="password" id="password" name="password" required>
+    
+            <div class="user-type">
+                <input type="radio" id="job_seeker" name="user_type" value="job_seeker" required>
+                <label for="job_seeker">Pencari Pekerjaan</label>
+            </div>
+            <div class="user-type">
+                <input type="radio" id="job_provider" name="user_type" value="job_provider" required>
+                <label for="job_provider">Penyedia Pekerjaan</label>
+            </div>
+            <div class="user-type">
+                <input type="radio" id="trainer" name="user_type" value="trainer" required>
+                <label for="trainer">Penyedia Pelatihan</label>
+            </div>
+    
+            <input type="submit" value="Daftar">
+        </form>
+        <p style="text-align: center;">Sudah memiliki akun? <a href="http://localhost/KP/Login/login.html">Masuk</a></p>
+    </div>
+
+<script>
+    document.getElementById("checkUsername").addEventListener("click", function() {
+        var username = document.getElementById("username").value;
+        if (username.trim() !== "") {
+            // Lakukan permintaan AJAX untuk memeriksa username di database
+            fetch("check_username.php?username=" + username)
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+            });
+        } else {
+            alert("Username tidak boleh kosong.");
+        }
+    });
+
+    document.getElementById("checkEmail").addEventListener("click", function() {
+        var email = document.getElementById("email").value;
+        if (email.trim() !== "") {
+            // Lakukan permintaan AJAX untuk memeriksa email di database
+            fetch("check_email.php?email=" + email)
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+            });
+        } else {
+            alert("Email tidak boleh kosong.");
+        }
+    });
+</script>
+
+</body>
+</html>

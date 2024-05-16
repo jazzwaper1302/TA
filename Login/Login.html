@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // JavaScript untuk menampilkan popup jika ada pesan error
+        <?php if (!empty($error_message)) { ?>
+            window.onload = function() {
+                alert("<?php echo $error_message; ?>");
+            };
+        <?php } ?>
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Masuk</h2>
+        <form action="login.php" method="post">
+            <div class="form-group">
+                <label for="email">Alamat Surel:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Kata Sandi:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Masuk</button>
+        </form>
+        <p>Belum memiliki akun? <a href="http://localhost/KP/Signup/form.html">Mendaftar</button></p>
+
+    </div>
+</body>
+</html>
