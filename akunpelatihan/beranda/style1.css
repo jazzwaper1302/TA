@@ -1,0 +1,206 @@
+body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+
+.navbar {
+        background-color: #666; /* Warna kelabu */
+        color: #fff;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; /* Menambahkan wrap untuk tata letak fleksibel */
+        position: sticky; /* Buat navbar tetap di posisi saat di-scroll */
+        top: 0; /* Atur navbar di bagian atas */
+        z-index: 1000; /* Atur z-index agar navbar tetap di atas konten */
+    }
+
+.navbar-title {
+        font-size: 24px;
+        flex: 1; /* Membuat judul navbar fleksibel */
+        margin-right: 10px; /* Memberi jarak kanan untuk mode handphone */
+    }
+
+.menu {
+        flex: 1; /* Membuat menu fleksibel */
+        display: flex;
+        justify-content: flex-end; /* Menggeser menu ke sisi kanan */
+    }
+
+.menu-item {
+        margin: 0 10px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+.menu-item:hover {
+        text-decoration: underline;
+    }
+
+.container {
+    display: flex;
+    flex-direction: column; /* Membuat layout menjadi kolom */
+    margin: 0 auto; /* Mengubah margin atas dan bawah menjadi 0 */
+    padding-top: 50px; /* Mengurangi padding top */
+    }
+.content-container {
+        padding: 0 10px;
+    }
+
+.recommendations-container {
+        padding: 0 10px;
+    }
+
+.post-container {
+        margin: 20px auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%; /* Atur lebar post container agar mengisi lebar maksimum yang tersedia */
+        max-width: 600px; /* Batasi lebar maksimum post container */
+    }
+
+.post-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+.user-info {
+        flex-grow: 1;
+        margin-right: 10px; /* Menambahkan jarak antara nama dan username */
+    }
+
+.username {
+        font-size: 14px; /* Menyesuaikan ukuran username */
+        font-style: italic; /* Membuat username menjadi miring */
+    }
+
+.post-menu {
+        cursor: pointer;
+    }
+
+.post-footer {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+.action-buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+.profile-picture {
+        width: 40px; /* Sesuaikan ukuran foto profil */
+        height: 40px;
+        border-radius: 50%; /* Bulatkan foto profil */
+        margin-right: 10px; /* Beri jarak antara foto profil dan info pengguna */
+    }
+
+.footer-menu {
+        background-color: #666; /* Warna kelabu */
+        color: #fff;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+    }
+
+.footer-menu a {
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column; /* Mengatur tata letak menjadi kolom */
+        align-items: center; /* Menggeser ikon dan teks ke tengah */
+    }
+
+.footer-menu a:hover {
+        text-decoration: underline;
+    }
+
+.footer-menu .icon {
+        margin-bottom: 5px; /* Memberi jarak antara ikon dan teks */
+        font-size: 20px; /* Atur ukuran ikon */
+    }
+
+.post {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #fff;
+    }
+
+.menu-icon {
+        margin-right: 5px;
+    }
+/* Media queries untuk tata letak responsif */
+@media only screen and (max-width: 600px) {
+    /* Aturan CSS yang ada sebelumnya */
+
+    .post-container {
+        max-width: calc(100% - 20px); /* Batasi lebar maksimum post container */
+        margin: 0 auto; /* Atur margin menjadi otomatis agar tetap berada di tengah */
+    }
+
+    /* Aturan CSS yang ada sebelumnya */
+}
+
+    /* Media queries untuk tata letak responsif */
+    @media only screen and (min-width: 600px) {
+        .container {
+            flex-direction: row; /* Mengembalikan layout menjadi baris */
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+
+        .content-container {
+            flex: 3;
+        }
+
+        .recommendations-container {
+            flex: 1;
+        }
+
+        .menu {
+            flex: auto; /* Menggunakan sebagian ruang yang tersedia */
+            justify-content: flex-end; /* Menggeser menu ke sisi kanan */
+        }
+
+        textarea {
+            width: 100%; /* Lebar textarea mengisi kontainer */
+        }
+    }
+
+    /* Mengubah lebar bawah navbar */
+    @media only screen and (max-width: 600px) {
+        .navbar {
+            flex-direction: column; /* Mengubah tata letak menjadi kolom */
+        }
+
+        .navbar-title {
+            margin: 0; /* Menghapus margin */
+            flex: 1; /* Membuat judul navbar fleksibel */
+        }
+
+        .menu {
+            flex: auto; /* Menggunakan sebagian ruang yang tersedia */
+            justify-content: flex-start; /* Menggeser menu ke sisi kiri */
+        }
+
+        .menu-item {
+            margin: 5px 10px; /* Mengurangi margin */
+        }
+
+        textarea {
+            width: calc(100% - 20px); /* Lebar textarea mengisi kontainer dengan padding */
+        }
+    }

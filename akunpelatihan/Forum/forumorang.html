@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beranda - Karir dan Profesi</title>
+<!-- Tambahkan link Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!--CSSnya Cuy-->
+<link rel="stylesheet" href="forum.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="navbar-title">
+        <h1>Karir dan Profesi</h1>
+    </div>
+    <div class="menu">
+        <a href="http://localhost/KP/sidqi/Tugas%20Akhir/info.html" class="menu-item"><i class="far fa-briefcase icon"></i> Info</a>
+        <a href="http://localhost/KP/agung/template_ig/index.html" class="menu-item"><i class="far fa-envelope icon"></i> Pesan</a>
+        <a href="http://localhost/KP/Login/login.html" class="menu-item"><i class="fas fa-sign-out-alt icon"></i> Log out</a>
+        
+    </div>
+    
+</div>
+
+<div class="container">
+    <div class="content-container">
+        <div class="search-container" id="search-container">
+            <input type="text" placeholder="Cari...">
+            <button type="submit">Cari</button>
+            <br>
+            <br>
+            <a href="#" class="menu-item" style="color: brown;"><i class="fas fa-user icon"></i> Orang</a>
+            <a href="#" class="menu-item" style="color: brown;"><i class="fas fa-users icon"></i> Grup</a>
+            <a href="#" class="menu-item" style="color: brown;"><i class="fas fa-map-marker-alt icon"></i> Tempat</a>
+            <a href="#" class="menu-item" style="color: brown;"><i class="fas fa-briefcase icon"></i> Pekerjaan</a>
+        </div>
+        <div class="post">
+            <h2>Buat Postingan</h2>
+            <form action="#" method="POST">
+                <textarea name="post-content" rows="4" cols="50" style="resize: none;"></textarea>
+                <br>
+                <input type="file" name="files[]" multiple accept="image/*, video/*">
+                <br>
+                <input type="submit" value="Post">
+            </form>
+        </div>
+        <!-- Friend posts and other content continue here -->
+    </div>
+    <div class="recommendations-container">
+        <div class="recommendations">
+            <h2>Rekomendasi Pelatihan</h2>
+            <p>Pelatihan 1</p>
+            <p>Pelatihan 2</p>
+            <p>Pelatihan 3</p>
+        </div>
+        <div class="recommendations">
+            <h2>Rekomendasi Pekerjaan</h2>
+            <p>Pekerjaan 1</p>
+            <p>Pekerjaan 2</p>
+            <p>Pekerjaan 3</p>
+        </div>
+        <div class="recommendations">
+            <h2>Rekomendasi Orang</h2>
+            <p>Orang 1</p>
+            <p>Orang 2</p>
+            <p>Orang 3</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer-menu">
+    <a href="http://localhost/KP/akunpelatihan/beranda/beranda.html"><i class="fas fa-home icon"></i> <span>Beranda</span></a>
+    <a href="http://localhost/KP/akunpelatihan/tambahpelatihan/tambahpelatihan.html"><i class="far fa-lightbulb icon"></i> <span> Pelatihan</span></a>
+    <a href="http://localhost/KP/akunpelatihan/Forum/forumorang.html"><i class="far fa-comments icon"></i> <span>Forum</span></a>
+    <a href="http://localhost/KP/akunpelatihan/profil/profile.html"><i class="far fa-user-circle icon"></i> <span>Profile</span></a>
+</div>
+
+<script>
+    const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            menuItems.forEach(item => item.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>

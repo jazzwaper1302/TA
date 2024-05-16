@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interaksi </title>
+<!-- Tambahkan link Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!--CSSnya Cuy-->
+<link rel="stylesheet" href="styles.css">
+<style>
+.toggle-chat-button {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.chat-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+    z-index: 999;
+}
+
+.close-chat-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="navbar-title">
+        <h1>Karir dan Profesi</h1>
+    </div>
+    <div class="menu">
+        <a href="http://localhost/KP/sidqi/Tugas%20Akhir/info.html" class="menu-item"><i class="far fa-briefcase icon"></i> Info</a>
+        <a href="http://localhost/KP/agung/template_ig/index.html" class="menu-item"><i class="far fa-envelope icon"></i> Pesan</a>
+        <a href="http://localhost/KP/Login/login.html" class="menu-item"><i class="fas fa-sign-out-alt icon"></i> Log out</a>
+    </div>
+</div>
+<!--Video-->
+<div id="videos">
+    <video id="localVideo" autoplay muted></video>
+    <video id="remoteVideo" autoplay></video>
+</div>
+<div id="buttons">
+    <button id="startButton"><i class="fas fa-phone"></i> Start Call</button>
+    <button id="hangupButton"><i class="fas fa-phone-slash"></i> End Call</button>
+</div>
+<script src="script.js"></script>
+
+<!--Chatnya cuy-->
+<div id="chatBox" class="chat-box">
+    <div id="messageContainer"></div>
+    <div id="inputContainer">
+        <input type="text" id="messageInput" placeholder="Type your message...">
+        <button id="sendButton">Send</button>
+    </div>
+    <div id="closeChat" class="close-chat-button">
+        <i class="fas fa-times"></i>
+    </div>
+</div>
+
+<!-- Tombol Toggle Chat -->
+<div id="toggleChat" class="toggle-chat-button">
+    <i class="fas fa-comment"></i>
+</div>
+
+<!--footernya cuy-->
+<div class="footer-menu">
+    <a href="http://localhost/KP/akunpelatihan/beranda/beranda.html"><i class="fas fa-home icon"></i> <span>Beranda</span></a>
+    <a href="http://localhost/KP/akunpelatihan/tambahpelatihan/tambahpelatihan.html"><i class="far fa-lightbulb icon"></i> <span> Pelatihan</span></a>
+    <a href="http://localhost/KP/akunpelatihan/Forum/forumorang.html"><i class="far fa-comments icon"></i> <span>Forum</span></a>
+    <a href="http://localhost/KP/akunpelatihan/profil/profile.html"><i class="far fa-user-circle icon"></i> <span>Profile</span></a>
+</div> 
+<script>
+// JavaScript untuk mengatur kotak obrolan
+const messageContainer = document.getElementById('messageContainer');
+
+function appendMessage(message) {
+    const messageElement = document.createElement('div');
+    messageElement.textContent = message;
+    messageContainer.appendChild(messageElement);
+
+    // Tambahkan kelas animasi ke pesan
+    messageElement.classList.add('message-move-up');
+
+    // Auto scroll ke bawah
+    messageContainer.scrollTop = messageContainer.scrollHeight;
+}
+
+// Contoh penggunaan:
+appendMessage('This is a sample message');
+
+// Fungsi untuk mengirim pesan
+function sendMessage() {
+    const messageInput = document.getElementById('messageInput');
+    const message = messageInput.value.trim();
+    
+    if (message !== '') {
+        appendMessage('You: ' + message);
+        messageInput.value = '';
+    }
+}
+
+// Menghubungkan fungsi sendMessage dengan tombol kirim
+document.getElementById('sendButton').addEventListener('click', sendMessage);
+
+
+// Mendapatkan elemen-elemen yang diperlukan
+const toggleChatButton = document.getElementById('toggleChat');
+const chatBox = document.getElementById('chatBox');
+const closeChatButton = document.getElementById('closeChat');
+
+// Fungsi untuk menampilkan chatbox
+function openChatBox() {
+    chatBox.style.display = 'block';
+}
+
+// Fungsi untuk menyembunyikan chatbox
+function closeChatBox() {
+    chatBox.style.display = 'none';
+}
+
+// Event listener untuk tombol toggle
+toggleChatButton.addEventListener('click', () => {
+    if (chatBox.style.display === 'block') {
+        closeChatBox();
+    } else {
+        openChatBox();
+    }
+});
+
+// Event listener untuk tombol tutup chatbox
+closeChatButton.addEventListener('click', () => {
+    closeChatBox();
+});
+</script>
+
+</body>
+</html>

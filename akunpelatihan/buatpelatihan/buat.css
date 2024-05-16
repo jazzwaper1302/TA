@@ -1,0 +1,192 @@
+/* CSS untuk halaman web Anda */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    padding-bottom: 60px; /* Menambahkan padding-bottom sesuai tinggi footer */
+}
+
+.navbar {
+    background-color: #666; /* Warna kelabu */
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Menambahkan wrap untuk tata letak fleksibel */
+    position: sticky; /* Buat navbar tetap di posisi saat di-scroll */
+    top: 0; /* Atur navbar di bagian atas */
+    z-index: 1000; /* Atur z-index agar navbar tetap di atas konten */
+}
+
+.navbar-title {
+    font-size: 24px;
+    flex: 1; /* Membuat judul navbar fleksibel */
+    margin-right: 10px; /* Memberi jarak kanan untuk mode handphone */
+}
+
+.menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-container .menu-item {
+    margin: 0 10px;
+    color: brown;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.menu-container .menu-item:hover {
+    text-decoration: underline;
+}
+
+.menu-container .menu-item.active {
+    opacity: 1;
+}
+
+.menu {
+    flex: 1; /* Membuat menu fleksibel */
+    display: flex;
+    justify-content: flex-end; /* Menggeser menu ke sisi kanan */
+}
+
+.menu-item {
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-item:hover {
+    text-decoration: underline;
+}
+
+/* Formulir pelatihan*/
+h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+form {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+textarea {
+    resize: vertical;
+}
+/*CSS Formulir sampai sini*/
+
+.footer-menu {
+    background-color: #666; /* Warna kelabu */
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-menu a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column; /* Mengatur tata letak menjadi kolom */
+    align-items: center; /* Menggeser ikon dan teks ke tengah */
+}
+
+.footer-menu a:hover {
+    text-decoration: underline;
+}
+
+.footer-menu .icon {
+    margin-bottom: 5px; /* Memberi jarak antara ikon dan teks */
+    font-size: 20px; /* Atur ukuran ikon */
+}
+
+.post {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.menu-icon {
+    margin-right: 5px;
+}
+
+/* Mengubah lebar bawah navbar */
+@media only screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column; /* Mengubah tata letak menjadi kolom */
+    }
+
+    .navbar-title {
+        margin: 0; /* Menghapus margin */
+        flex: 1; /* Membuat judul navbar fleksibel */
+    }
+
+    .menu {
+        flex: auto; /* Menggunakan sebagian ruang yang tersedia */
+        justify-content: flex-start; /* Menggeser menu ke sisi kiri */
+    }
+
+    .menu-item {
+        margin: 5px 10px; /* Mengurangi margin */
+    }
+
+    textarea {
+        width: calc(100% - 20px); /* Lebar textarea mengisi kontainer dengan padding */
+    }
+
+}

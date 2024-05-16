@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelola Pelatihan - Karir dan Profesi</title>
+<!-- Tambahkan link Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- CSS -->
+<link rel="stylesheet" href="template.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+
+    .navbar {
+        background-color: #666; /* Warna kelabu */
+        color: #fff;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; /* Menambahkan wrap untuk tata letak fleksibel */
+        position: sticky; /* Buat navbar tetap di posisi saat di-scroll */
+        top: 0; /* Atur navbar di bagian atas */
+        z-index: 1000; /* Atur z-index agar navbar tetap di atas konten */
+    }
+
+    .navbar-title {
+        font-size: 24px;
+        flex: 1; /* Membuat judul navbar fleksibel */
+        margin-right: 10px; /* Memberi jarak kanan untuk mode handphone */
+    }
+
+    .menu {
+        flex: 1; /* Membuat menu fleksibel */
+        display: flex;
+        justify-content: flex-end; /* Menggeser menu ke sisi kanan */
+    }
+
+    .menu-item {
+        margin: 0 10px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .menu-item:hover {
+        text-decoration: underline;
+    }
+
+
+    /* Footer */
+    .footer-menu {
+        background-color: #666; /* Warna abu-abu */
+        color: #fff;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+    }
+
+    .footer-menu a {
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column; /* Layout kolom */
+        align-items: center; /* Pusatkan ikon dan teks */
+    }
+
+    .footer-menu a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-menu .icon {
+        margin-bottom: 5px; /* Jarak antara ikon dan teks */
+        font-size: 20px; /* Ukuran ikon */
+    }
+
+
+    /* Untuk desktop */
+    @media screen and (min-width: 768px) {
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .navbar-title {
+            flex: 1;
+        }
+
+        .menu {
+            flex: 1;
+            text-align: right;
+        }
+
+        .menu-item {
+            margin-left: 20px;
+        }
+
+    }
+
+    /* Mengubah lebar bawah navbar */
+    @media only screen and (max-width: 600px) {
+        .navbar {
+            flex-direction: column; /* Mengubah tata letak menjadi kolom */
+        }
+
+        .navbar-title {
+            margin: 0; /* Menghapus margin */
+            flex: 1; /* Membuat judul navbar fleksibel */
+        }
+
+        .menu {
+            flex: auto; /* Menggunakan sebagian ruang yang tersedia */
+            justify-content: flex-start; /* Menggeser menu ke sisi kiri */
+            padding: 0 20px; /* Menambahkan padding di sekitar item-menu */
+        }
+
+        .menu-item {
+            margin: 5px 10px; /* Mengurangi margin */
+        }
+
+        textarea {
+            width: calc(100% - 20px); /* Lebar textarea mengisi kontainer dengan padding */
+        }
+    }
+
+    /*isiiannya cuy*/
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .categories {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .content {
+        flex: 2;
+    }
+
+    .category-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .category-item {
+    margin-bottom: 20px; /* Atur jarak antara setiap kategori */
+}
+
+    .category-item a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+    }
+
+    /*kontennya*/
+    .course {
+    margin-bottom: 20px; /* Jarak antara setiap kategori */
+}
+
+.course h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.course-item {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.course-item h3 {
+    margin-top: 0;
+}
+
+.course-item p {
+    margin-bottom: 10px;
+}
+
+.course-item a {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.course-item a:hover {
+    background-color: #0056b3;
+}
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="navbar-title">
+        <h1>Karir dan Profesi</h1>
+    </div>
+    <div class="menu">
+        <a href="http://localhost/KP/sidqi/Tugas%20Akhir/info.html" class="menu-item"><i class="far fa-briefcase icon"></i> Info</a>
+        <a href="http://localhost/KP/agung/template_ig/index.html" class="menu-item"><i class="far fa-envelope icon"></i> Pesan</a>
+        <a href="http://localhost/KP/Login/login.html" class="menu-item"><i class="fas fa-sign-out-alt icon"></i> Log out</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="categories">
+        <h1>Kategori</h1>
+        <ul class="category-list">
+            <li class="category-item"><i class="fas fa-utensils"></i> <a href="#tata-boga">Tata Boga</a></li>
+            <li class="category-item"><i class="fas fa-tools"></i> <a href="#service">Service</a></li>
+            <li class="category-item"><i class="fas fa-user"></i> <a href="#pengembanganDiri">Pengembangan Diri</a></li>
+            <li class="category-item"><i class="fas fa-hotel"></i> <a href="#perhotelan">Perhotelan</a></li>
+            <li class="category-item"><i class="fas fa-shopping-cart"></i> <a href="#penjualan">Penjualan</a></li>
+            <li class="category-item"><i class="fas fa-file-alt"></i> <a href="#administrasi">Administrasi</a></li>
+            <li class="category-item"><i class="fas fa-money-bill-wave"></i> <a href="#keuangan">Keuangan</a></li>
+            <li class="category-item"><i class="fas fa-chart-line"></i> <a href="#marketing">Marketing</a></li>
+            <li class="category-item"><i class="fas fa-store"></i> <a href="#ritel">Ritel</a></li>
+            <li class="category-item"><i class="fas fa-cogs"></i> <a href="#teknik">Teknik</a></li>
+            <li class="category-item"><i class="fas fa-shipping-fast"></i> <a href="#logistik">Logistik</a></li>
+            <li class="category-item"><i class="fas fa-handshake"></i> <a href="#official-partners">Official Partners</a></li>
+            <li class="category-item"><i class="fas fa-language"></i> <a href="#bahasa-inggris">Bahasa Inggris</a></li>
+            </ul>
+            </div>
+            <div class="content">
+            <div class="course" id="tata-boga">
+            <h2>Tata Boga</h2>
+            <div class="course-item">
+            <h3>Judul Materi 1 - Nama Pembuat 1</h3>
+            <p>Keterangan 1</p>
+            <a href="link_ke_file_pdf_1.pdf">Download PDF</a>
+            </div>
+            </div>
+            <div class="course" id="service">
+                <h2>Service</h2>
+                <div class="course-item">
+                    <h3>Judul Materi 2 - Nama Pembuat 2</h3>
+                    <p>Keterangan 2</p>
+                    <a href="link_ke_file_pdf_2.pdf">Download PDF</a>
+                </div>
+            </div>
+        
+            <div class="course" id="pengembangan-diri">
+                <h2>Pengembangan Diri</h2>
+                <div class="course-item">
+                    <h3>Judul Materi 3 - Nama Pembuat 3</h3>
+                    <p>Keterangan 3</p>
+                    <a href="link_ke_file_pdf_3.pdf">Download PDF</a>
+                </div>
+            </div>
+            <!-- Tambahkan struktur HTML untuk kategori lain di sini -->
+        </div>
+    </div>
+    <div class="footer-menu">
+        <a href="http://localhost/KP/akunpelatihan/beranda/beranda.html"><i class="fas fa-home icon"></i> <span>Beranda</span></a>
+        <a href="http://localhost/KP/akunpelatihan/tambahpelatihan/tambahpelatihan.html"><i class="far fa-lightbulb icon"></i> <span> Pelatihan</span></a>
+        <a href="http://localhost/KP/akunpelatihan/Forum/forumorang.html"><i class="far fa-comments icon"></i> <span>Forum</span></a>
+        <a href="http://localhost/KP/akunpelatihan/profil/profile.html"><i class="far fa-user-circle icon"></i> <span>Profile</span></a>
+    </div>
+    <script>
+        // Mendapatkan semua elemen dengan kelas "course"
+        var courses = document.querySelectorAll('.course');
+    
+        // Mengatur konten awal yang tersembunyi
+        courses.forEach(function(course) {
+            course.style.display = 'none';
+        });
+    
+        // Menampilkan konten untuk kategori yang dipilih
+        function showContent(category) {
+            // Sembunyikan semua konten terlebih dahulu
+            courses.forEach(function(course) {
+                course.style.display = 'none';
+            });
+            // Tampilkan konten yang sesuai dengan kategori yang dipilih
+            var selectedCourse = document.getElementById(category);
+            selectedCourse.style.display = 'block';
+        }
+    </script>
+    </body>
+    </html>

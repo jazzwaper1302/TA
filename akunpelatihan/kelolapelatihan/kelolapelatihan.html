@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelola Pelatihan - Karir dan Profesi</title>
+<!-- Tambahkan link Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- CSS -->
+<link rel="stylesheet" href="kelola.css">
+<style>
+</style>
+</head>
+<body>
+<!--menu kanan-->
+<div class="navbar">
+    <div class="navbar-title">
+        <h1>Karir dan Profesi</h1>
+    </div>
+    <div class="menu">
+        <!-- Menu Items -->
+    </div>
+</div>
+<!-- Konten Tabel Pelatihan -->
+<div class="table-container">
+    <h2>Monitor Pelatihan</h2>
+    <div class="containerx" id="pelatihan-container">
+        <!-- Data Pelatihan akan dimasukkan di sini menggunakan JavaScript -->
+    </div>
+</div>
+
+<!-- Footer Menu -->
+<div class="footer-menu">
+    <a href="http://localhost/KP/akunpelatihan/beranda/beranda.html"><i class="fas fa-home icon"></i> <span>Beranda</span></a>
+    <a href="http://localhost/KP/akunpelatihan/tambahpelatihan/tambahpelatihan.html"><i class="far fa-lightbulb icon"></i> <span> Pelatihan</span></a>
+    <a href="http://localhost/KP/akunpelatihan/Forum/forumorang.html"><i class="far fa-comments icon"></i> <span>Forum</span></a>
+    <a href="http://localhost/KP/akunpelatihan/profil/profile.html"><i class="far fa-user-circle icon"></i> <span>Profile</span></a>
+</div> 
+
+<!-- Popup untuk Edit -->
+<div class="overlay" id="overlay"></div>
+<div class="popup" id="popup">
+    <h3>Edit Pelatihan</h3>
+    <form id="editForm" method="post" action="edit.php"> <!-- Perubahan action ke edit.php -->
+        <label for="editJudul">Judul Pelatihan:</label><br>
+        <input type="text" id="editJudul" name="editJudul"><br>
+        <label for="editKeahlian">Keahlian:</label><br>
+        <input type="text" id="editKeahlian" name="editKeahlian"><br>
+        <label for="editTanggal">Tanggal:</label><br>
+        <input type="date" id="editTanggal" name="editTanggal"><br>
+        <label for="editSesi">Sesi:</label><br>
+        <input type="text" id="editSesi" name="editSesi"><br>
+        <label for="editPengisi">Pengisi:</label><br>
+        <input type="text" id="editPengisi" name="editPengisi"><br>
+        <label for="editKuota">Kuota:</label><br>
+        <input type="number" id="editKuota" name="editKuota"><br>
+        <label for="editKeterangan">Keterangan:</label><br>
+        <textarea id="editKeterangan" name="editKeterangan"></textarea><br><br>
+        <div class="button-container">
+            <button type="submit" class="save-button">Simpan</button>
+            <button type="button" onclick="hideEditPopup()">Batal</button>
+        </div>
+    </form>
+</div>
+
+<!-- JavaScript untuk memuat data pelatihan menggunakan AJAX -->
+<script>
+    // Fungsi untuk menampilkan popup edit dengan informasi pelatihan yang dipilih
+    function showEditPopup(judul, keahlian, tanggal, sesi, pengisi, kuota, keterangan) {
+        document.getElementById("editJudul").value = judul;
+        document.getElementById("editKeahlian").value = keahlian;
+        document.getElementById("editTanggal").value = tanggal;
+        document.getElementById("editSesi").value = sesi;
+        document.getElementById("editPengisi").value = pengisi;
+        document.getElementById("editKuota").value = kuota;
+        document.getElementById("editKeterangan").value = keterangan;
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("popup").style.display = "block";
+    }
+
+    // Fungsi untuk menyembunyikan popup edit
+    function hideEditPopup() {
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("popup").style.display = "none";
+    }
+
+    // Menggunakan AJAX untuk memuat data pelatihan dari file PHP
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var pelatihanData = JSON.parse(this.responseText);
+            var pelatihanContainer = document.getElementById("pelatihan-container");
+
+// Loop melalui data pelatihan dan tambahkan ke dalam kontainer
+pelatihanData.forEach(function(pelatihan) {
+    var box = document.createElement("div");
+    box.className = "box";
+    box.innerHTML = "<h3>" + pelatihan.judul_pelatihan + "</h3>" +
+                    "<p><strong>Keahlian:</strong> " + pelatihan.keahlian + "</p>" +
+                    "<p><strong>Tanggal:</strong> " + pelatihan.tanggal_pelatihan + "</p>" +
+                    "<p><strong>Sesi:</strong> " + pelatihan.sesi + "</p>" +
+                    "<p><strong>Pengisi:</strong> " + pelatihan.nama_pengisi + "</p>" +
+                    "<p><strong>Kuota</strong>: " + pelatihan.kuota_pelatihan + "</p>" +
+                    "<p><strong>Keterangan:</strong> " + pelatihan.deskripsi + "</p>" +
+                    "<button onclick='showEditPopup(\"" + pelatihan.judul_pelatihan + "\", \"" + pelatihan.keahlian + "\", \"" + pelatihan.tanggal_pelatihan + "\", \"" + pelatihan.sesi + "\", \"" + pelatihan.nama_pengisi + "\", \"" + pelatihan.kuota_pelatihan + "\", \"" + pelatihan.deskripsi + "\")'>Edit</button>" +
+                    "<button>Lihat</button>";
+    pelatihanContainer.appendChild(box);
+});
+}
+};
+xhttp.open("GET", "kelola.php", true);
+xhttp.send();
+
+// Menangani submit form edit
+document.getElementById("editForm").addEventListener("submit", function(event) {
+event.preventDefault();
+
+// Ambil data dari form
+var judul = document.getElementById("editJudul").value;
+var keahlian = document.getElementById("editKeahlian").value;
+var tanggal = document.getElementById("editTanggal").value;
+var sesi = document.getElementById("editSesi").value;
+var pengisi = document.getElementById("editPengisi").value;
+var kuota = document.getElementById("editKuota").value;
+var keterangan = document.getElementById("editKeterangan").value;
+
+// Lakukan sesuatu dengan data yang diubah (misalnya, kirim ke server)
+console.log("Judul yang diedit: " + judul);
+console.log("Keahlian yang diedit: " + keahlian);
+console.log("Tanggal yang diedit: " + tanggal);
+console.log("Sesi yang diedit: " + sesi);
+console.log("Pengisi yang diedit: " + pengisi);
+console.log("Kuota yang diedit: " + kuota);
+console.log("Keterangan yang diedit: " + keterangan);
+
+// Sembunyikan popup
+hideEditPopup();
+
+// Mengirim data ke skrip PHP menggunakan AJAX
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+    console.log(this.responseText); // Tampilkan respons dari server (opsional)
+    // Refresh halaman atau lakukan tindakan lain setelah penyimpanan berhasil (opsional)
+}
+};
+xhr.open("POST", "edit.php", true); // Sesuaikan dengan nama skrip PHP penyimpanan
+xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhr.send("editJudul=" + judul + "&editKeahlian=" + keahlian + "&editTanggal=" + tanggal + "&editSesi=" + sesi + "&editPengisi=" + pengisi + "&editKuota=" + kuota + "&editKeterangan=" + keterangan);
+});
+</script>
+
+</body>
+</html>

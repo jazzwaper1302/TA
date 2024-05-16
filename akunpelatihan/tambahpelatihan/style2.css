@@ -1,0 +1,252 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.navbar {
+    background-color: #666; /* Warna kelabu */
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Menambahkan wrap untuk tata letak fleksibel */
+    position: sticky; /* Buat navbar tetap di posisi saat di-scroll */
+    top: 0; /* Atur navbar di bagian atas */
+    z-index: 1000; /* Atur z-index agar navbar tetap di atas konten */
+}
+
+.navbar-title {
+    font-size: 24px;
+    flex: 1; /* Membuat judul navbar fleksibel */
+    margin-right: 10px; /* Memberi jarak kanan untuk mode handphone */
+}
+
+.menu {
+    flex: 1; /* Membuat menu fleksibel */
+    display: flex;
+    justify-content: flex-end; /* Menggeser menu ke sisi kanan */
+}
+
+.menu-item {
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-item:hover {
+    text-decoration: underline;
+}
+
+/* Menu pelatihan */
+.content {
+    max-width: 800px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.training-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.menu1 {
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px; /* Jarak antara menu */
+}
+.menu2 {
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px; /* Jarak antara menu */
+}
+
+/* Footer */
+.footer-menu {
+    background-color: #666; /* Warna abu-abu */
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-menu a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column; /* Layout kolom */
+    align-items: center; /* Pusatkan ikon dan teks */
+}
+
+.footer-menu a:hover {
+    text-decoration: underline;
+}
+
+.footer-menu .icon {
+    margin-bottom: 5px; /* Jarak antara ikon dan teks */
+    font-size: 20px; /* Ukuran ikon */
+}
+
+/* Styling tambahan untuk jadwal pelatihan */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Menggabungkan batas sel */
+    margin-top: 20px;
+}
+
+thead th,
+tbody td {
+    border: 1px solid #ddd; /* Garis pemisah antar sel */
+    padding: 10px; /* Ruang dalam sel */
+    text-align: center; /* Pusatkan teks dalam sel */
+}
+
+thead th {
+    background-color: #666; /* Warna latar belakang header */
+    color: #fff; /* Warna teks header */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Warna latar belakang baris genap */
+}
+
+/* Lebar kolom sesuai konten */
+td {
+    width: auto;
+}
+
+/* Menu Pelatihan Untuk desktop */
+@media screen and (min-width: 768px) {
+    /* Navbar */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .navbar-title {
+        flex: 1;
+    }
+
+    .menu {
+        flex: 1;
+        text-align: right;
+    }
+
+    .menu-item {
+        margin-left: 20px;
+    }
+
+    /* Pelatihan */
+    .menupelatihan {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+
+    .menu1 {
+        text-align: center;
+        flex: 1;
+        margin: 0 10px;
+    }
+    /* Jadwal Pelatihan */
+    table {
+        width: 100%;
+    }
+}
+/* Menu Pelatihan Untuk mode handphone */
+@media screen and (max-width: 767px) {
+    /* Navbar */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .navbar-title {
+        flex: 1;
+    }
+
+    .menu {
+        flex: 1;
+        text-align: right;
+    }
+
+    .menu-item {
+        margin-left: 20px;
+    }
+
+    /* Pelatihan */
+    .menupelatihan {
+        display: flex;
+        flex-direction: column; /* Mengatur tata letak menjadi vertikal */
+        align-items: center;
+        margin-top: 0px;
+    }
+
+    .menu1 {
+        width: 70%; /* Mengatur lebar menu1 */
+        height: 110% ; /*panjang*/
+        text-align: center;
+        flex: 1;
+        margin: 10px 50px;
+    }
+
+    /* Jadwal Pelatihan */
+    table {
+        width: 100%;
+    }
+}
+
+
+ /* Mengubah lebar bawah navbar */
+ @media only screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column; /* Mengubah tata letak menjadi kolom */
+    }
+
+    .navbar-title {
+        margin: 0; /* Menghapus margin */
+        flex: 1; /* Membuat judul navbar fleksibel */
+    }
+
+    .menu {
+        flex: auto; /* Menggunakan sebagian ruang yang tersedia */
+        justify-content: flex-start; /* Menggeser menu ke sisi kiri */
+        padding: 0 20px; /* Menambahkan padding di sekitar item-menu */
+    }
+
+    .menu-item {
+        margin: 5px 10px; /* Mengurangi margin */
+    }
+
+    textarea {
+        width: calc(100% - 20px); /* Lebar textarea mengisi kontainer dengan padding */
+    }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelatihan</title>
+    <!--Link font dan icon cuy-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!--ini CSSnya cuy-->
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="navbar-title">
+            <h1>Karir dan Profesi</h1>
+        </div>
+        <div class="menu">
+            <a href="http://localhost/KP/sidqi/Tugas%20Akhir/info.html" class="menu-item"><i class="far fa-briefcase icon"></i> Info</a>
+            <a href="http://localhost/KP/agung/template_ig/index.html" class="menu-item"><i class="far fa-envelope icon"></i> Pesan</a>
+            <a href="http://localhost/KP/Login/login.html" class="menu-item"><i class="fas fa-sign-out-alt icon"></i> Log out</a>
+            
+        </div>
+    </div>  
+            <h2>Pelatihan</h2>
+            <div class="menupelatihan">
+                <a href="http://localhost/KP/akunpelatihan/buatpelatihan/buat.html" class="menu1"><i class="fas fa-chalkboard-teacher icon"></i><br>Buat Pelatihan</a>
+                <a href="http://localhost/KP/akunpelatihan/kelolapelatihan/kelolapelatihan.html" class="menu1"><i class="far fa-calendar-alt icon"></i><br>Kelola Pelatihan</a>
+                <a href="#" class="menu1"><i class="fas fa-megaphone icon"></i><br>Promosikan</a>
+                <a href="http://localhost/KP/akunpelatihan/upload/konten.html" class="menu1"><i class="fas fa-cloud-upload-alt icon"></i><br>Unduh/Upload</a>
+            </div>
+            <h2>Jadwal Pelatihan</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Jadwal</th>
+            <th>Tanggal</th>
+            <th>Nama Pelatihan</th>
+            <th>Waktu Pelatihan</th>
+            <th>Jumlah Peserta</th>
+            <th>Mulai</th> <!-- tambahkan kolom Mulai -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Senin, 21 Maret</td>
+            <td>21/03/2024</td>
+            <td>Pelatihan A</td>
+            <td>09:00 - 12:00</td>
+            <td>20</td>
+            <td><button id="mulai_pelatihan_a" disabled>Mulai</button></td>
+        </tr>
+        <tr>
+            <td>Selasa, 22 Maret</td>
+            <td>22/03/2024</td>
+            <td>Pelatihan B</td>
+            <td>10:00 - 13:00</td>
+            <td>15</td>
+            <td><button id="mulai_pelatihan_b" disabled>Mulai</button></td>
+        </tr>
+        <tr>
+            <td>Rabu, 23 Maret</td>
+            <td>23/03/2024</td>
+            <td>Pelatihan C</td>
+            <td>13:00 - 16:00</td>
+            <td>25</td>
+            <td><button id="mulai_pelatihan_c" onclick="window.location.href='http://localhost/KP/akunpelatihan/interaksi/Vc.html'">Mulai</button></td>
+            <!-- tombol Mulai yang aktif -->
+        </tr>
+        <!-- Tambahkan baris tabel lebih lanjut di sini sesuai kebutuhan -->
+    </tbody>
+</table>
+        <div>
+
+            <div class="footer-menu">
+                <a href="http://localhost/KP/akunpelatihan/beranda/beranda.html"><i class="fas fa-home icon"></i> <span>Beranda</span></a>
+                <a href="http://localhost/KP/akunpelatihan/tambahpelatihan/tambahpelatihan.html"><i class="far fa-lightbulb icon"></i> <span> Pelatihan</span></a>
+                <a href="http://localhost/KP/akunpelatihan/Forum/forumorang.html"><i class="far fa-comments icon"></i> <span>Forum</span></a>
+                <a href="http://localhost/KP/akunpelatihan/profil/profile.html"><i class="far fa-user-circle icon"></i> <span>Profile</span></a>
+            </div>
+        </div>
+</body>
+</html>

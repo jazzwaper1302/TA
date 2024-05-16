@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.navbar {
+    background-color: #666; /* Warna kelabu */
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Menambahkan wrap untuk tata letak fleksibel */
+    position: sticky; /* Buat navbar tetap di posisi saat di-scroll */
+    top: 0; /* Atur navbar di bagian atas */
+    z-index: 1000; /* Atur z-index agar navbar tetap di atas konten */
+}
+
+.navbar-title {
+    font-size: 24px;
+    flex: 1; /* Membuat judul navbar fleksibel */
+    margin-right: 10px; /* Memberi jarak kanan untuk mode handphone */
+}
+
+.menu {
+    flex: 1; /* Membuat menu fleksibel */
+    display: flex;
+    justify-content: flex-end; /* Menggeser menu ke sisi kanan */
+}
+
+.menu-item {
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-item:hover {
+    text-decoration: underline;
+}
+
+
+/* Footer */
+.footer-menu {
+    background-color: #666; /* Warna abu-abu */
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-menu a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column; /* Layout kolom */
+    align-items: center; /* Pusatkan ikon dan teks */
+}
+
+.footer-menu a:hover {
+    text-decoration: underline;
+}
+
+.footer-menu .icon {
+    margin-bottom: 5px; /* Jarak antara ikon dan teks */
+    font-size: 20px; /* Ukuran ikon */
+}
+
+
+/* Untuk desktop */
+@media screen and (min-width: 768px) {
+    /* Navbar */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .navbar-title {
+        flex: 1;
+    }
+
+    .menu {
+        flex: 1;
+        text-align: right;
+    }
+
+    .menu-item {
+        margin-left: 20px;
+    }
+
+}
+
+ /* Mengubah lebar bawah navbar */
+ @media only screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column; /* Mengubah tata letak menjadi kolom */
+    }
+
+    .navbar-title {
+        margin: 0; /* Menghapus margin */
+        flex: 1; /* Membuat judul navbar fleksibel */
+    }
+
+    .menu {
+        flex: auto; /* Menggunakan sebagian ruang yang tersedia */
+        justify-content: flex-start; /* Menggeser menu ke sisi kiri */
+        padding: 0 20px; /* Menambahkan padding di sekitar item-menu */
+    }
+
+    .menu-item {
+        margin: 5px 10px; /* Mengurangi margin */
+    }
+
+    textarea {
+        width: calc(100% - 20px); /* Lebar textarea mengisi kontainer dengan padding */
+    }
+}
+
+
+/*isiiannya cuy*/
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+.categories {
+    flex: 1;
+    margin-right: 20px;
+}
+.content {
+    flex: 2;
+}
+.category-list {
+    list-style-type: none;
+    padding: 0;
+}
+.category-item {
+    margin-bottom: 10px;
+}
+.category-item a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}

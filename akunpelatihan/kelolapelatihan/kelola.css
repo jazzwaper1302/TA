@@ -1,0 +1,230 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.navbar {
+    background-color: #666; /* Warna kelabu */
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Menambahkan wrap untuk tata letak fleksibel */
+    position: sticky; /* Buat navbar tetap di posisi saat di-scroll */
+    top: 0; /* Atur navbar di bagian atas */
+    z-index: 1000; /* Atur z-index agar navbar tetap di atas konten */
+}
+
+.navbar-title {
+    font-size: 24px;
+    flex: 1; /* Membuat judul navbar fleksibel */
+    margin-right: 10px; /* Memberi jarak kanan untuk mode handphone */
+}
+
+.menu {
+    flex: 1; /* Membuat menu fleksibel */
+    display: flex;
+    justify-content: flex-end; /* Menggeser menu ke sisi kanan */
+}
+
+.menu-item {
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-item:hover {
+    text-decoration: underline;
+}
+
+/* Css boxnya */
+.containerx {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0px 20px; /* Menambahkan margin di samping kiri dan samping kanan */
+}
+
+.box {
+    width: 30%;
+    background-color: #f0f0f0;
+    border: 4px solid #ccc;
+    margin-bottom: 20px; /* Menambahkan jarak di bawah kotak */
+    box-sizing: border-box;
+    margin: 0 10px; /* Menambahkan margin kiri dan kanan */
+    padding: 20px; /* Menambahkan padding di dalam kotak */
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        margin: 0; /* Menghapus margin kiri dan kanan pada mode handphone */
+    }
+    
+    .box {
+        width: 100%;
+        margin: 0; /* Menghapus margin kiri dan kanan pada mode handphone */
+    }
+}
+/* Footer */
+.footer-menu {
+    background-color: #666; /* Warna abu-abu */
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-menu a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column; /* Layout kolom */
+    align-items: center; /* Pusatkan ikon dan teks */
+}
+
+.footer-menu a:hover {
+    text-decoration: underline;
+}
+
+.footer-menu .icon {
+    margin-bottom: 5px; /* Jarak antara ikon dan teks */
+    font-size: 20px; /* Ukuran ikon */
+}
+
+
+/* Untuk desktop */
+@media screen and (min-width: 768px) {
+    /* Navbar */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .navbar-title {
+        flex: 1;
+    }
+
+    .menu {
+        flex: 1;
+        text-align: right;
+    }
+
+    .menu-item {
+        margin-left: 20px;
+    }
+
+}
+
+ /* Mengubah lebar bawah navbar */
+ @media only screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column; /* Mengubah tata letak menjadi kolom */
+    }
+
+    .navbar-title {
+        margin: 0; /* Menghapus margin */
+        flex: 1; /* Membuat judul navbar fleksibel */
+    }
+
+    .menu {
+        flex: auto; /* Menggunakan sebagian ruang yang tersedia */
+        justify-content: flex-start; /* Menggeser menu ke sisi kiri */
+        padding: 0 20px; /* Menambahkan padding di sekitar item-menu */
+    }
+
+    .menu-item {
+        margin: 5px 10px; /* Mengurangi margin */
+    }
+
+    textarea {
+        width: calc(100% - 20px); /* Lebar textarea mengisi kontainer dengan padding */
+    }
+}
+/* Pop upnya untuk editing*/
+/* Tambahkan gaya untuk tombol Simpan */
+.save-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background-color: #45a049;
+}
+
+/* Tambahkan gaya untuk popup */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+.popup {
+    background-color: #fefefe;
+    margin: 0 auto; /* Menghilangkan margin agar tidak mempengaruhi penempatan */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 75%;
+    max-width: 600px;
+    z-index: 1000;
+    position: fixed; /* Mengubah menjadi fixed */
+    left: 50%; /* Pusat horizontal */
+    transform: translateX(-50%);
+    bottom: 107px; /* Muncul di bawah dengan jarak 10px dari bawah layar */
+    display: none;
+}
+
+
+
+.popup h3 {
+    margin-top: 0;
+}
+
+.popup input[type="text"],
+.popup input[type="date"],
+.popup textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.popup input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.popup textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.popup .button-container {
+    text-align: right;
+}

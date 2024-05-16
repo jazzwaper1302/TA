@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelola Pelatihan - Karir dan Profesi</title>
+<!-- Tambahkan link Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.navbar {
+    background-color: #666; /* Warna kelabu */
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Menambahkan wrap untuk tata letak fleksibel */
+    position: sticky; /* Buat navbar tetap di posisi saat di-scroll */
+    top: 0; /* Atur navbar di bagian atas */
+    z-index: 1000; /* Atur z-index agar navbar tetap di atas konten */
+}
+
+.navbar-title {
+    font-size: 24px;
+    flex: 1; /* Membuat judul navbar fleksibel */
+    margin-right: 10px; /* Memberi jarak kanan untuk mode handphone */
+}
+
+.menu {
+    flex: 1; /* Membuat menu fleksibel */
+    display: flex;
+    justify-content: flex-end; /* Menggeser menu ke sisi kanan */
+}
+
+.menu-item {
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-item:hover {
+    text-decoration: underline;
+}
+
+.container {
+    padding: 20px;
+    display: flex; /* Menggunakan flexbox */
+    justify-content: space-between; /* Memisahkan kontainer menjadi dua bagian */
+}
+
+.container-left, .container-right {
+    /* Membuat kedua kontainer memiliki lebar yang sama */
+    flex-basis: 80%; /* Kontainer kiri */
+    flex-basis: 20%; /* Kontainer kanan */
+}
+
+/* Grid di dalam kontainer kanan */
+.container-right {
+    display: grid;
+    grid-template-rows: 70% 30%; /* Atur proporsi grid dengan ukuran yang berbeda */
+    gap: 10px; /* Jarak antar grid */
+    position: relative; /* Memperlihatkan posisi relatif untuk konten anak */
+}
+
+/* Gaya untuk video webcam */
+#webcam {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mengatur video agar sesuai dengan ukuran div */
+}
+
+/* Grid atas */
+.grid-item:nth-child(1) {
+    padding: 10px;
+    border: 3px solid #ccc;
+    width: 100%;
+    height: 200px;
+}
+
+/* Footer */
+.footer-menu {
+    background-color: #666; /* Warna abu-abu */
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-menu a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column; /* Layout kolom */
+    align-items: center; /* Pusatkan ikon dan teks */
+}
+
+.footer-menu a:hover {
+    text-decoration: underline;
+}
+
+.footer-menu .icon {
+    margin-bottom: 5px; /* Jarak antara ikon dan teks */
+    font-size: 20px; /* Ukuran ikon */
+}
+
+/* Chatbox */
+.chatbox {
+    position: fixed;
+    bottom: 20px;
+    right: 3px; /* Memperbaiki posisi */
+    height: 470px;
+    width: 390px;
+    bottom: 70px; /* Jarak dari bawah */
+    background-color: #696868; /* Ubah warna latar belakang */
+    border: 1px solid #928d8d; /* Ubah warna border */
+    border-radius: 10px; /* Meningkatkan radius border */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Efek bayangan yang lebih lembut */
+    transition: all 0.3s ease; /* Animasi transisi */
+}
+
+.chatbox-header {
+    background-color: #eaeaea; /* Ubah warna header */
+    padding: 15px; /* Memperbesar padding */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #777777; /* Ubah warna ikon tutup */
+    transition: color 0.3s ease; /* Animasi transisi */
+}
+
+.close-button:hover {
+    color: #333333; /* Ubah warna ikon tutup saat hover */
+}
+
+/* Gaya untuk Kotak Obrolan (Chat Box) */
+#chatBox {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 250px; /* Tinggi chat box */
+    overflow-y: scroll;
+    width: 300px; /* Lebar chat box */
+    position: fixed;
+    bottom: 120px; /* Jarak dari bawah */
+    right: 20px; /* Jarak dari kanan */
+    z-index: 1000; /* Atur z-index agar chat box tetap di atas konten */
+}
+
+/* Gaya untuk Input Container */
+
+#inputContainer {
+    position: fixed;
+    bottom: 120px; /* Jarak dari bawah */
+    right: 25px; /* Jarak dari kanan */
+    display: flex;
+    width: 315px;
+    align-items: center;
+}
+
+#messageInput {
+    padding: 5px;
+    flex: 1;
+}
+
+#sendButton {
+    padding: 5px 10px;
+    margin-left: 5px; /* Jarak antara input dan tombol */
+}
+.toggle-chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+
+/* Untuk desktop */
+@media screen and (min-width: 768px) {
+    /* Navbar */
+    .navbar {
+        display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-title {
+    flex: 1;
+}
+
+.menu {
+    flex: 1;
+    text-align: right;
+}
+
+.menu-item {
+    margin-left: 20px;
+}
+
+}
+
+/* Mengubah lebar bawah navbar */
+@media only screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column; /* Mengubah tata letak menjadi kolom */
+    }
+
+    .navbar-title {
+        margin: 0; /* Menghapus margin */
+        flex: 1; /* Membuat judul navbar fleksibel */
+    }
+
+    .menu {
+        flex: auto; /* Menggunakan sebagian ruang yang tersedia */
+        justify-content: flex-start; /* Menggeser menu ke sisi kiri */
+        padding: 0 20px; /* Menambahkan padding di sekitar item-menu */
+    }
+
+    .menu-item {
+        margin: 5px 10px; /* Mengurangi margin */
+    }
+
+    textarea {
+        width: calc(100% - 20px); /* Lebar textarea mengisi kontainer dengan padding */
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="navbar-title">
+        <h1>Karir dan Profesi</h1>
+    </div>
+    <div class="menu">
+        <a href="http://localhost/KP/sidqi/Tugas%20Akhir/info.html" class="menu-item"><i class="far fa-briefcase icon"></i> Info</a>
+        <a href="http://localhost/KP/agung/template_ig/index.html" class="menu-item"><i class="far fa-envelope icon"></i> Pesan</a>
+        <a href="http://localhost/KP/Login/login.html" class="menu-item"><i class="fas fa-sign-out-alt icon"></i> Log out</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="container-left">
+        <!-- Konten di sisi kiri -->
+        <h2>Konten Kontainer Kiri</h2>
+        <p>Ini adalah konten yang berada di dalam kontainer kiri.</p>
+    </div>
+    <div class="container-right">
+        <!-- Grid atas -->
+    
+    <div class="grid-item">
+    <video id="webcam" autoplay muted></video>
+    <button id="toggleVideoBtn">Turn Video On/Off</button>
+    <button id="toggleAudioBtn">Turn Audio On/Off</button>
+    </div>
+
+    </div>
+    
+</div>
+
+<div class="footer-menu">
+    <a href="http://localhost/KP/akunpelatihan/beranda/beranda.html"><i class="fas fa-home icon"></i> <span>Beranda</span></a>
+    <a href="http://localhost/KP/akunpelatihan/tambahpelatihan/tambahpelatihan.html"><i class="far fa-lightbulb icon"></i> <span> Pelatihan</span></a>
+    <a href="http://localhost/KP/akunpelatihan/Forum/forumorang.html"><i class="far fa-comments icon"></i> <span>Forum</span></a>
+    <a href="http://localhost/KP/akunpelatihan/profil/profile.html"><i class="far fa-user-circle icon"></i> <span>Profile</span></a>
+</div> 
+
+<!--Chatnya cuy-->
+<div id="chatBox" class="chat-box">
+    <div id="messageContainer"></div>
+    <div id="inputContainer">
+        <input type="text" id="messageInput" placeholder="Type your message...">
+        <button id="sendButton">Send</button>
+    </div>
+    <div id="closeChat" class="close-chat-button">
+        <i class="fas fa-times"></i>
+    </div>
+</div>
+
+<!-- Tombol Toggle Chat -->
+<div id="toggleChat" class="toggle-chat-button">
+    <i class="fas fa-comment"></i>
+</div>
+  <!--JSnya-->
+<script>
+// Kode JavaScript webcam
+let stream;
+const video = document.getElementById('webcam');
+const toggleVideoBtn = document.getElementById('toggleVideoBtn');
+const toggleAudioBtn = document.getElementById('toggleAudioBtn');
+
+navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+    .then(userStream => {
+        stream = userStream;
+        video.srcObject = stream;
+    })
+    .catch(error => {
+        console.error('Error accessing webcam:', error);
+    });
+
+toggleVideoBtn.addEventListener('click', () => {
+    const tracks = stream.getVideoTracks();
+    tracks.forEach(track => {
+        track.enabled = !track.enabled;
+    });
+});
+
+toggleAudioBtn.addEventListener('click', () => {
+    const tracks = stream.getAudioTracks();
+    tracks.forEach(track => {
+        track.enabled = !track.enabled;
+    });
+});
+ // JavaScript untuk mengatur kotak obrolan
+const messageContainer = document.getElementById('messageContainer');
+
+function appendMessage(message) {
+    const messageElement = document.createElement('div');
+    messageElement.textContent = message;
+    messageContainer.appendChild(messageElement);
+
+    // Tambahkan kelas animasi ke pesan
+    messageElement.classList.add('message-move-up');
+
+    // Auto scroll ke bawah
+    messageContainer.scrollTop = messageContainer.scrollHeight;
+}
+
+// Contoh penggunaan:
+appendMessage('This is a sample message');
+
+// Fungsi untuk mengirim pesan
+function sendMessage() {
+    const messageInput = document.getElementById('messageInput');
+    const message = messageInput.value.trim();
+    
+    if (message !== '') {
+        appendMessage('You: ' + message);
+        messageInput.value = '';
+    }
+}
+
+// Menghubungkan fungsi sendMessage dengan tombol kirim
+document.getElementById('sendButton').addEventListener('click', sendMessage);
+
+
+// Mendapatkan elemen-elemen yang diperlukan
+const toggleChatButton = document.getElementById('toggleChat');
+const chatBox = document.getElementById('chatBox');
+const closeChatButton = document.getElementById('closeChat');
+
+// Fungsi untuk menampilkan chatbox
+function openChatBox() {
+    chatBox.style.display = 'block';
+}
+
+// Fungsi untuk menyembunyikan chatbox
+function closeChatBox() {
+    chatBox.style.display = 'none';
+}
+
+// Event listener untuk tombol toggle
+toggleChatButton.addEventListener('click', () => {
+    if (chatBox.style.display === 'block') {
+        closeChatBox();
+    } else {
+        openChatBox();
+    }
+});
+
+// Event listener untuk tombol tutup chatbox
+closeChatButton.addEventListener('click', () => {
+    closeChatBox();
+});
+
+</script>
+</body>
+</html>

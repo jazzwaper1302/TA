@@ -1,0 +1,191 @@
+/* CSSnya Cuy */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.navbar {
+    background-color: #666; /* Warna kelabu */
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Menambahkan wrap untuk tata letak fleksibel */
+    position: sticky; /* Buat navbar tetap di posisi saat di-scroll */
+    top: 0; /* Atur navbar di bagian atas */
+    z-index: 1000; /* Atur z-index agar navbar tetap di atas konten */
+}
+
+.navbar-title {
+    font-size: 24px;
+    flex: 1; /* Membuat judul navbar fleksibel */
+    margin-right: 10px; /* Memberi jarak kanan untuk mode handphone */
+    display: flex;
+    align-items: center;
+}
+
+.menu {
+    flex: 1; /* Membuat menu fleksibel */
+    display: flex;
+    justify-content: flex-end; /* Menggeser menu ke sisi kanan */
+}
+
+.menu-item {
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.menu-item:hover {
+    text-decoration: underline;
+}
+
+.menu-item .icon {
+    margin-right: 5px;
+}
+
+/* Footer */
+.footer-menu {
+    background-color: #666; /* Warna abu-abu */
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-menu a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column; /* Layout kolom */
+    align-items: center; /* Pusatkan ikon dan teks */
+}
+
+.footer-menu a:hover {
+    text-decoration: underline;
+}
+
+.footer-menu .icon {
+    margin-bottom: 5px; /* Jarak antara ikon dan teks */
+    font-size: 20px; /* Ukuran ikon */
+}
+
+/* Video */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#videos {
+    margin-top: 30%;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+video {
+    border: 1px solid black;
+}
+
+#localVideo {
+    width: 25%;
+    height: auto;
+    position: absolute;
+    margin-left: 24.8%;
+    top: 20%;
+    left: 0;
+    transform: scaleX(-1);
+}
+
+#remoteVideo {
+    width: 25%;
+    height: auto;
+    position: absolute;
+    margin-right: 24.8%;
+    top: 20%;
+    right: 0;
+}
+
+#buttons {
+    text-align: center; /* Untuk mengatur tombol ke tengah secara horizontal */
+    position: absolute; /* Untuk menggunakan posisi absolut */
+    bottom: 350px; /* Jarak dari bawah */
+    left: 50%; /* Posisi horizontal di tengah */
+    transform: translateX(-50%); /* Untuk menggeser tombol ke kiri sejauh setengah dari lebar tombol itu sendiri */
+}
+
+#startButton, #hangupButton {
+    padding: 10px 20px;
+    margin: 0 10px;
+}
+
+
+button {
+    padding: 10px 20px;
+    margin: 100 10px;
+}
+.button-icon {
+    margin-right: 10px;
+}
+
+/* Gaya untuk Kotak Obrolan (Chat Box) */
+#chatBox {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 250px; /* Tinggi chat box */
+    overflow-y: scroll;
+    width: 300px; /* Lebar chat box */
+    position: fixed;
+    bottom: 120px; /* Jarak dari bawah */
+    right: 20px; /* Jarak dari kanan */
+    z-index: 1000; /* Atur z-index agar chat box tetap di atas konten */
+}
+
+/* Gaya untuk Input Container */
+
+#inputContainer {
+    position: fixed;
+    bottom: 120px; /* Jarak dari bawah */
+    right: 25px; /* Jarak dari kanan */
+    display: flex;
+    width: 315px;
+    align-items: center;
+}
+
+#messageInput {
+    padding: 5px;
+    flex: 1;
+}
+
+#sendButton {
+    padding: 5px 10px;
+    margin-left: 5px; /* Jarak antara input dan tombol */
+}
+.toggle-chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+
